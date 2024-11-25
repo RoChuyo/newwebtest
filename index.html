@@ -3,15 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Task 2</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to My Portfolio</h1>
-        <div class="buttons">
-            <a href="task1.html" class="button">Task 1</a>
-            <a href="task2.html" class="button">Task 2</a>
+        <!-- 居中的3D模型 -->
+        <model-viewer 
+            src="test.glb" 
+            alt="3D Model" 
+            auto-rotate 
+            camera-controls 
+            disable-zoom 
+            class="model-viewer">
+        </model-viewer>
+        
+        <!-- 动态滑动文字 -->
+        <div class="text-container">
+            <h1>suigai hinann basyo</h1>
         </div>
     </div>
     <script src="script.js"></script>

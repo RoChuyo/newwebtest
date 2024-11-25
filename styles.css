@@ -1,42 +1,51 @@
+/* 通用样式 */
 body {
     margin: 0;
     padding: 0;
+    height: 200vh; /* 增加页面高度以便测试滚动效果 */
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #e4e5e6, #ffffff);
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom right, #ff9a9e, #fad0c4, #fbc2eb);
-}
-
-.container {
-    text-align: left;
-}
-
-h1 {
-    color: white;
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.buttons {
-    display: flex;
-    gap: 20px;
-}
-
-.button {
-    display: inline-block;
-    padding: 15px 30px;
-    border-radius: 10px;
-    background-color: purple;
-    color: white;
-    font-size: 1.2rem;
-    text-decoration: none;
-    position: relative;
-    transition: all 0.3s ease;
     overflow: hidden;
 }
 
-.button:hover {
-    box-shadow: 0 0 20px 10px rgba(128, 0, 128, 0.5);
+/* 3D模型样式 */
+.model-viewer {
+    width: 60vw; /* 设置模型宽度占屏幕的60% */
+    height: 60vh; /* 设置模型高度占屏幕的60% */
+    background-color: transparent; /* 去除背景 */
+    border: none; /* 去除边框 */
+    z-index: 2; /* 保证模型位于文字上层 */
+    overflow: visible; /* 确保模型不被裁剪 */
+}
+
+/* 动态文字容器 */
+.text-container {
+    position: absolute; /* 文字相对于容器绝对定位 */
+    bottom: 10%; /* 文字距离底部10% */
+    left: -100%; /* 初始状态文字隐藏在屏幕左侧 */
+    transform: translateX(0);
+    opacity: 0;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+/* 动态文字样式 */
+.text-container h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: rgba(51, 51, 51, 0.9);
+}
+
+/* 滚动触发动画 */
+.text-container.active {
+    left: 10%;
+    opacity: 1;
 }
